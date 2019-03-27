@@ -126,6 +126,7 @@ With the planning and structure in place I built out the components and tested t
 #### Known issues:
 * IS.01 Opening hours with more than 40 characters per index cause a shift in layout of the detailed view
 * IS.02 “To website” text is displayed when no website was provided
+	* *Resolved on 3/27/2019*
 * IS.03 No indication is given when no opening hours are available
 * IS.04 Use of random function could result in a Type error
 * IS.05 Reset function doesn’t restore original array after use of sort or filter.
