@@ -15,7 +15,8 @@ class CardSmall extends Component {
     this.state = {
       target: this.props.source,
       SplittedAdress:[],
-      priceRange:''
+      priceRange:'',
+      shortenWebsite: ''
     };
   }
 
@@ -26,6 +27,9 @@ class CardSmall extends Component {
 
     var splitted = this.splitAdress(this.state.target.address);
     this.setState({SplittedAdress: splitted});
+
+    var cappedSite = this.capWebsite(this.state.target.website);
+    this.setState({shortenWebsite: cappedSite})
   }
 
 //function that converts the numeral price-range to text values or displays N.A. if no price range was indicated
@@ -60,6 +64,19 @@ class CardSmall extends Component {
     return (splitted)
   }
 
+  //Checks if website is filled, if not returns a placeholder
+  capWebsite = (website) => {
+    var cappedSite = '';
+    if (website === undefined || website === ''){
+      cappedSite = 'No website'
+    }else {
+      cappedSite = website.split('/');
+      cappedSite = cappedSite[2];
+      console.log(cappedSite);
+    }
+    return(cappedSite);
+  }
+
   //JSON object from which this component is created gets passed through it's own modal/detailpage
   //Button to open the modal is included in the CardModal component
   render() {
@@ -75,11 +92,11 @@ class CardSmall extends Component {
             <p className='cardSmallH3'>Rating: {this.state.target.rating}</p>
             <p className='cardSmallH3'>Price-range: {this.state.priceRange}</p>
             <p className='cardSmallH3'>{this.state.SplittedAdress[0]}<br />{this.state.SplittedAdress[1]}</p>
-            <a className='cardSmallH4' href={this.state.target.website}>To website</a>
+            <a className='cardSmallH4' href={this.state.shortenWebsite}>{this.state.shortenWebsite}</a>
             <p className='cardSmallH4'>{this.state.target.phone_number}</p>
           </div>
 
-          <CardModal source={this.state.target} newAddress={this.state.SplittedAdress} priceRange={this.state.priceRange}/>
+          <CardModal source={this.state.target} newAddress={this.state.SplittedAdress} priceRange={this.state.priceRange} shortenWebsite={this.state.shortenWebsite}/>
         </div>
       </div>
     )

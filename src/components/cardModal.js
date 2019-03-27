@@ -64,7 +64,7 @@ export default class CardModal extends React.Component {
                 <p className='cardBigH3'>{this.props.newAddress[0]} <br/> {this.props.newAddress[1]}</p>
                 <br/>
                 <br/>
-                <a className='cardBigH3' href={this.state.source.website}>To website </a>
+                <a className='cardBigH3' href={this.state.source.website}>{this.props.shortenWebsite}</a>
                 <p className='cardBigH3'>{this.state.source.phone_number}</p>
               </div>
             </div>
