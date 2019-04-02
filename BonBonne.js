@@ -61,9 +61,18 @@ class BonBonne extends Component {
     //To prevent multiple random functions from stacking on top of each other, a reset is done
     this.reset();
     var randomArray = [];
-    for (var i = 5; i > 0 ; i--){
-      var random = Math.floor((Math.random() * (data.length)) + 1);
-      randomArray.push(data[random]);
+    var usedNumbers = [];
+    var randomNumber = 0;
+    while (randomArray.length < 6){
+      randomNumber = Math.floor((Math.random() * (data.length)));
+      //Check if the random number has already been used
+      if (usedNumbers.includes(randomNumber)){
+        randomNumber = Math.floor((Math.random() * (data.length)));
+      }
+      else{
+        randomArray.push(data[randomNumber]);
+        usedNumbers.push(randomNumber);
+      }
     }
     this.setState((prevState, props) => ({
       restaurants: randomArray
