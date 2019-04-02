@@ -130,6 +130,7 @@ With the planning and structure in place I built out the components and tested t
 * IS.03 No indication is given when no opening hours are available
 * IS.04 Use of random function could result in a Type error
 * IS.05 Reset function doesn’t restore original array after use of sort or filter.
+	* *Resolved on 4/2/2019*
 
 #### Planned implementations
 * FEA.01 Algorithm for splitting the address is noted twice. Once in the list file and again in the detail file.
