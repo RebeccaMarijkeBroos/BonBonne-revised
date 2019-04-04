@@ -16,10 +16,10 @@ class BonBonne extends Component {
   //OnChange function that filters the data based on values in a dropdown menu
   filterData=(event)=>{
     var filteredArray = data;
-    if (event.target.value == 'rating'){
+    if (event.target.value === 'rating'){
       filteredArray = filteredArray.filter(item => item.rating >= 4);
-    }else if (event.target.value == 'price'){
-      filteredArray = filteredArray.filter(item => item.price_level == 1);
+    }else if (event.target.value === 'price'){
+      filteredArray = filteredArray.filter(item => item.price_level === 1);
     }else {
       this.reset();
     }
@@ -96,7 +96,7 @@ class BonBonne extends Component {
         <header>
           <h1 className='logo'>Bon Bonne</h1>
           <div className='tools'>
-            <div>
+            <div className=' extraSpace'>
               Sort by: &nbsp;
               <select value={this.state.value} onChange={this.sortData}>
                 <option value="">---</option>
@@ -104,7 +104,7 @@ class BonBonne extends Component {
                 <option value="rating">Rating</option>
               </select>
             </div>
-            <div>
+            <div className=' extraSpace'>
               Filter on: &nbsp;
               <select value={this.state.value} onChange={this.filterData}>
                 <option value="">---</option>
@@ -112,11 +112,13 @@ class BonBonne extends Component {
                 <option value="price">Bargains</option>
               </select>
             </div>
-            <button className='toolButton' onClick={this.wildCards}>I can't decide!</button>
-            <button className='toolButton' onClick={this.reset}>Reset</button>
+            <button className='toolButton extraSpace' onClick={this.wildCards}>Random</button>
+            <button className='toolButton extraSpace' onClick={this.reset}>Reset</button>
           </div>
         </header>
+        <div className='cardRegion'>
           {this.printContent()}
+        </div>
           <footer>
             Bon Bonne API by Rebecca Marijke Broos
           </footer>
