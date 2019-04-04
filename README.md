@@ -150,3 +150,5 @@ With the planning and structure in place I built out the components and tested t
 * FEA.06 Restaurant roulette: button to display a set of randomized restaurants
 	* *Added on 3/16/2019*
 * FEA.07 Discard: Card button to delete card from results to help user narrow down the ideal restaurant
+* FEA.08 Mobile Layout
+	* *Added on 4/4/2019*
